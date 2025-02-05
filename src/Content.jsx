@@ -1,20 +1,19 @@
-import logo from './logo.svg';
+import ItemList from './ItemList';
 
-const Content = () => {
-  const handleNameChange = () => {
-    const names = ['Bob', 'Kevin', 'Dave'];
-    const int = Math.floor(Math.random() * 3);
-    return names[int];
-  };
+const Content = ({ items, handleCheck, handleDelete }) => {
+    return (
+        <main>
+            {items.length ? (
+                <ItemList
+                    items={items}
+                    handleCheck={handleCheck}
+                    handleDelete={handleDelete}
+                />
+            ) : (
+                <p style={{ marginTop: '2rem' }}>Your list is empty.</p>
+            )}
+        </main>
+    )
+}
 
-  return (
-    <header className="App-header">
-      <img src={logo} className="App-logo" alt="logo" />
-      <p>
-        Witaj{handleNameChange()}!
-      </p>
-    </header>
-  );
-};
-
-export default Content;
+export default Content
