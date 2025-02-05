@@ -3,6 +3,7 @@ import SearchItem from './SearchItem';
 import AddItem from './AddItem';
 import Content from './Content';
 import Footer from './Footer';
+import './index.css';
 import { useState, useEffect } from 'react';
 
 function App() {
@@ -39,7 +40,9 @@ function App() {
   }
 
   return (
+    
     <div className="App">
+      <link rel="stylesheet" href="index.css"></link>
       <Header title="Grocery List" />
       <AddItem
         newItem={newItem}
