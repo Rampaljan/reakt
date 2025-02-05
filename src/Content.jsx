@@ -11,7 +11,7 @@ const Content = () => {
     <header className="App-header">
       <img src={logo} className="App-logo" alt="logo" />
       <p>
-        Witaj nigga{handleNameChange()}!
+        Witaj{handleNameChange()}!
       </p>
     </header>
   );
