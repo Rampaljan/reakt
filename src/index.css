@@ -15,6 +15,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: rgb(30,30,30);
 }
 
 .App {
@@ -27,6 +28,7 @@ body {
   max-width: 500px;
   border: 1px solid mediumblue;
   margin: auto;
+  background-color: rgb(100, 100, 100);
 }
 
 header {
