@@ -5,6 +5,7 @@ import Content from './Content';
 import Footer from './Footer';
 import './index.css';
 import { useState, useEffect } from 'react';
+import { FaTextHeight } from 'react-icons/fa';
 
 function App() {
   const API_URL = "http://localhost:3500/items/"
@@ -12,19 +13,24 @@ function App() {
   const [items, setItems] = useState([]);
   const [newItem, setNewItem] = useState('')
   const [search, setSearch] = useState('')
+  const [fetcherror, setFetchError] = useState(null);
 
   useEffect(() => {
     const fetchitems = async () => {
       try{
         const response = await fetch(API_URL);
+        if(!response.ok) throw Error("Did not received expected data")
         const listitems = await response.json();
         setItems(listitems);
+        console.log(listitems);
+        setFetchError(null)
       } catch(err){
-        console.log(err.message)
+        setFetchError(err.message)
       }
     }
 
     fetchitems()
+    
   }, [])
 
   const addItem = (item) => {
@@ -65,11 +71,14 @@ function App() {
         search={search}
         setSearch={setSearch}
       />
+      <main>
+      {fetcherror && <p style={{color: "red"}}>{`Error: ${fetcherror}`}</p>}
       <Content
         items={items.filter(item => ((item.item).toLowerCase()).includes(search.toLowerCase()))}
         handleCheck={handleCheck}
         handleDelete={handleDelete}
       />
+      </main>
       <Footer length={items.length} />
     </div>
   );
