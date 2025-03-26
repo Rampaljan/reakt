@@ -22,7 +22,6 @@ function App() {
         if(!response.ok) throw Error("Did not received expected data")
         const listitems = await response.json();
         setItems(listitems);
-        console.log(listitems);
         setFetchError(null)
       } catch(err){
         setFetchError(err.message)
