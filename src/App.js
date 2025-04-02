@@ -47,9 +47,6 @@ function App() {
       body: JSON.stringify(myNewItem)
     }
     const result = await apiRequest(API_URL, postOptions);
-
-
-
   }
 
   const handleCheck = (id) => {
