@@ -1,3 +1,6 @@
+// //Use this nigga if you wanna start db server:
+// npx json-server@0.17.4 -p 3500 -w data/db.json
+
 import Header from './Header';
 import SearchItem from './SearchItem';
 import AddItem from './AddItem';
